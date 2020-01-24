@@ -50,7 +50,8 @@ $(".gif").on("click", function(){
     var moveGif = $(this).attr("data-move");
     console.log(this)
     if (state === "still") {
-         carImg.attr("src", moveGif)
+    $(this).attr("src", moveGif);
+        // $(".gifsHere").append(moveGif);
     }
 });
     console.log(name)
