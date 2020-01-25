@@ -1,9 +1,10 @@
 $(document).ready(function(){
     
-   
+    topics = ["dodge challenger", "ford mustang", "dodge viper", "chevrolet camaro", "ford gt", "chevrolet corvette", "dodge charger", "chevrolet chevelle"];
     //the array of cars
     function cars(){
- topics = ["dodge challenger", "ford mustang", "dodge viper", "chevrolet camaro", "ford gt", "chevrolet corvette", "dodge charger", "chevrolet chevelle"];
+       
+        $(".buttonDiv").empty();
 for (var i = 0; i < topics.length; i++) {
         
     //makes a button tag for all of the items in the array
@@ -16,7 +17,7 @@ for (var i = 0; i < topics.length; i++) {
   }
 }
 cars();
-  $(".btn").on("click", function(){
+function gifRender(){
 var name = $(this).attr("data-car");
 var queryURL =  "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=KCgM79ZpxcllM9MB9ntE6v2cO7qMkabl&limit=10"
 
@@ -48,9 +49,9 @@ method: "GET"
         $(".gifsHere").append(stillGif);
     }
     
-$(".gif").on("click", function(){
+$(".gif").on("click", function(event){
+    event.preventDefault();
     var state = $(this).attr("data-state");
-    
     console.log(this)
     if (state === "still") {
         $(this).attr("data-state", "move")
@@ -67,14 +68,16 @@ $(".gif").on("click", function(){
     console.log(name)
 });
 
-});
+}
 
 $("#search").on("click", function(){
-    $(".buttonDiv").empty();
-    var newGif = $("newGif").val();
+    
+    
+    var newGif = $("#newGif").val();
     topics.push(newGif)
     cars();
     console.log(newGif)
+    console.log(topics)
 });
-
+$(document).on("click", ".btn", gifRender);
 });
