@@ -34,10 +34,9 @@ $(document).ready(function () {
             })
             //the code inside the then function runs the ajax response comes back
             .then(function (response) {
-
+                console.log(response);
                 //results is the path to the array for the for loop
                 var results = response.data;
-
                 //the loop for the array     
                 for (var i = 0; i < results.length; i++) {
                     //creates an image tag and stores it
@@ -48,7 +47,8 @@ $(document).ready(function () {
                     var moveGifUrl = results[i].images.fixed_height.url;
                     //givers the img tag a src of the still image 
                     var stillGif = carImg.attr("src", stillGifUrl);
-
+                    //the rating
+                    var rating = $("<p>").text(results[i].rating);
                     //adds data-state to all of the images
                     stillGif.attr("data-state", "still")
                     //adds a class to all of the images
@@ -58,7 +58,8 @@ $(document).ready(function () {
                     //adds data-move of the moving url to all of the images
                     stillGif.attr("data-move", moveGifUrl)
                     //displays the images onto the screen
-                    $(".gifsHere").append(stillGif);
+                    $(".gifsHere").prepend(stillGif);
+                   
                 }
                 //onclick of one of the gifs
                 $(".gif").on("click", function (event) {
