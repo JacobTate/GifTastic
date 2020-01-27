@@ -1,4 +1,27 @@
 
-img{
-    margin-bottom:50px;
+
+.gif{
+    margin-bottom:5px;
+    margin-right:20px;
+    float:left;
+    text-align: center;
+    width:400px;
+}
+.rating{
+    position: relative;
+   background-color: crimson;
+   float: left;
+   top:-25px;
+   left: 100px;
+}
+.card{
+    width: 25rem;
+}
+.gifsHere{
+    margin-top:150px;
+   /* width: 1200px;*/
+}
+
+#search, #newGif{
+    float: right;
 }

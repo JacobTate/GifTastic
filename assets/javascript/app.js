@@ -22,10 +22,11 @@ $(document).ready(function () {
     cars();
     //the function to show the gifs
     function gifRender() {
+        var limit = 10; //$("#limit").val();
         //when a button is clicked store the data-car in a variable
         var name = $(this).attr("data-car");
         //use the name variable in the url
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=KCgM79ZpxcllM9MB9ntE6v2cO7qMkabl&limit=10"
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=KCgM79ZpxcllM9MB9ntE6v2cO7qMkabl&limit=" + limit + "&rating="
         //the ajax function
         $.ajax({
                 //the url variable from above
@@ -39,16 +40,28 @@ $(document).ready(function () {
                 var results = response.data;
                 //the loop for the array     
                 for (var i = 0; i < results.length; i++) {
+                    //the rating
+                    var rating = $("<p>")
+                    rating.attr("class", "card-text")
+                    rating.text("rating: " + results[i].rating);
+                    //creates a bootstrap card for the gifs
+                    var card = $("<div>").attr("class", "card")
                     //creates an image tag and stores it
                     var carImg = $("<img>")
+                    card.prepend(carImg)
+                    var cardbody = $("<div>").attr("class", "card-body")
+                    cardbody.prepend(rating)
+                    card.append(cardbody)
+
+
+                    
+
                     //stores the path to each still image in a variable
                     var stillGifUrl = results[i].images.fixed_height_still.url;
                     //stores the path to each moving image in a variable
                     var moveGifUrl = results[i].images.fixed_height.url;
                     //givers the img tag a src of the still image 
                     var stillGif = carImg.attr("src", stillGifUrl);
-                    //the rating
-                    var rating = $("<p>").text(results[i].rating);
                     //adds data-state to all of the images
                     stillGif.attr("data-state", "still")
                     //adds a class to all of the images
@@ -56,10 +69,11 @@ $(document).ready(function () {
                     //adds data-still of the still url to all of the images
                     stillGif.attr("data-still", stillGifUrl)
                     //adds data-move of the moving url to all of the images
-                    stillGif.attr("data-move", moveGifUrl)
+                    stillGif.attr("data-move", moveGifUrl);
                     //displays the images onto the screen
-                    $(".gifsHere").prepend(stillGif);
-                   
+
+                    $(".gifsHere").prepend(card);
+
                 }
                 //onclick of one of the gifs
                 $(".gif").on("click", function (event) {
@@ -95,12 +109,17 @@ $(document).ready(function () {
     $("#search").on("click", function () {
         //get the input form the input tag
         var newGif = $("#newGif").val();
-        //push it into the array
-        topics.push(newGif)
-        //call the cars function
-        cars();
-        //clears the input
-        $("#newGif").val("");
+        //checks to make sure the user enters a value so there is no blank buttons
+        if (newGif === "") {
+            alert("enter a car")
+        } else {
+            //push it into the array
+            topics.push(newGif)
+            //call the cars function
+            cars();
+            //clears the input
+            $("#newGif").val("");
+        }
     });
     //onclick of a button call the gifRender function
     $(document).on("click", ".btn", gifRender);
