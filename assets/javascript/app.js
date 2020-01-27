@@ -1,8 +1,9 @@
 $(document).ready(function () {
     //the array of cars
     topics = ["dodge challenger", "ford mustang", "dodge viper", "chevrolet camaro", "ford gt", "chevrolet corvette", "dodge charger", "chevrolet chevelle",
-     "Porsche Cayman GTS", "BMW i8 Coupe", "Audi R8", "mclaren 720s", "lamborghini aventador", "ferrari 458", "porsche 918 spyder", "hellcat", "mclaren f1",
-    "ferrari f40", "Bugatti Chiron"];
+        "Porsche Cayman GTS", "BMW i8 Coupe", "Audi R8", "mclaren 720s", "lamborghini aventador", "ferrari 458", "porsche 918 spyder", "hellcat", "mclaren f1",
+        "ferrari f40", "Bugatti Chiron"
+    ];
     //the function to display the buttons
     function cars() {
         //clears all of the buttons for the new ones
@@ -22,13 +23,27 @@ $(document).ready(function () {
         }
     }
     cars();
+    //the limit for the url
+    var limit = 10;
+    //onclick change the limit to 5
+    $(".limit5").on("click", function () {
+        limit = 5;
+    });
+    //onclick change the limit to 10
+    $(".limit10").on("click", function () {
+        limit = 10;
+    });
+    //onclick change the limit to 15
+    $(".limit15").on("click", function () {
+        limit = 15;
+    });
     //the function to show the gifs
     function gifRender() {
-        var limit = 10;
+
         //when a button is clicked store the data-car in a variable
         var name = $(this).attr("data-car");
         //use the name variable in the url
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=KCgM79ZpxcllM9MB9ntE6v2cO7qMkabl&limit=" + limit + "&rating="
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=KCgM79ZpxcllM9MB9ntE6v2cO7qMkabl&limit=" + limit
         //the ajax function
         $.ajax({
                 //the url variable from above
@@ -76,7 +91,7 @@ $(document).ready(function () {
                     Gif.attr("data-move", moveGifUrl);
 
                     //displays the images onto the screen
-                    $(".gifsHere").prepend(card);
+                    $(".container").prepend(card);
                 }
 
                 //onclick of one of the gifs
