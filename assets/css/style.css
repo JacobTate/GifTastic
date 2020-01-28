@@ -3,10 +3,6 @@ body {
     background-size: cover;
 }
 
-/*the div for the buttons*/
-.buttonDiv {
-}
-
 /*the gifs*/
 .gif {
     position: relative;
