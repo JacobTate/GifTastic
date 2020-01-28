@@ -1,8 +1,8 @@
 $(document).ready(function () {
     //the array of cars
-    topics = ["dodge challenger", "ford mustang", "dodge viper", "chevrolet camaro", "ford gt", "chevrolet corvette", "dodge charger", "chevrolet chevelle",
-        "Porsche Cayman GTS", "BMW i8 Coupe", "Audi R8", "mclaren 720s", "lamborghini aventador", "ferrari 458", "porsche 918 spyder", "hellcat", "mclaren f1",
-        "ferrari f40", "Bugatti Chiron"
+    topics = ["Dodge Challenger", "Ford Mustang", "Dodge Viper", "Chevrolet Camaro", "Ford Gt", "Chevrolet Corvette", "Dodge Charger", "Chevrolet Chevelle",
+        "Porsche Cayman GTS", "BMW i8 Coupe", "Audi R8", "Mclaren 720s", "Lamborghini Aventador", "Ferrari 458", "Porsche 918 Spyder", "Hellcat", "Mclaren F1",
+        "Ferrari f40", "Bugatti Chiron", "koenigsegg agera rs"
     ];
     //the function to display the buttons
     function cars() {
@@ -18,7 +18,7 @@ $(document).ready(function () {
             //gives all of the buttons a data-car of the name in the array
             btn.attr("data-car", topics[i])
             //gives all of the buttons a class
-            btn.attr("class", "btn btn-secondary")
+            btn.attr("class", " btn-secondary col-md-3")
 
         }
     }
@@ -141,5 +141,5 @@ $(document).ready(function () {
         }
     });
     //onclick of a button call the gifRender function
-    $(document).on("click", ".btn", gifRender);
+    $(document).on("click", ".btn-secondary", gifRender);
 });

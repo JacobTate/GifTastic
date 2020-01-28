@@ -18,22 +18,24 @@
 </head>
 
 <body>
+    <div id="gifSelect">
+        <!--the input to add a button-->
+  <input id="newGif" type="text" placeholder="add a car">
+  <!--the button to add a gif button-->
+  <button id="search">submit</button>
+  
+      <p>how many gifs you would like to see?</p>
+      <!--the buttons for the number of gifs selector-->
+      <button class="limit5">5 gifs</button>
+      <button class="limit10">10 gifs (default)</button>
+      <button class="limit15">15 gifs</button>
+      </div>
+
     <!--the div for the buttons-->
-    <div class="buttonDiv btn-group">
+    <div class="btn-group buttonDiv row" role="group" aria-label="Basic example">
     </div>
   
-    <div id="gifSelect">
-          <!--the input to add a button-->
-    <input id="newGif" type="text" placeholder="add a car">
-    <!--the button to add a gif button-->
-    <button id="search">submit</button>
-    
-        <p>how many gifs you would like to see?</p>
-        <!--the buttons for the number of gifs selector-->
-        <button class="limit5">5 gifs</button>
-        <button class="limit10">10 gifs (default)</button>
-        <button class="limit15">15 gifs</button>
-        </div>
+
     <!--the div for the gifs-->
     <div class="container gifDiv"></div>
    

@@ -1,20 +1,17 @@
 body {
     background-image: url("https://i.pinimg.com/originals/bb/44/25/bb4425aaf66111adf8103a5950ae6069.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
 }
 
 /*the div for the buttons*/
 .buttonDiv {
-    width: 1400px;
-    margin-left: 100px;
 }
 
 /*the gifs*/
 .gif {
+    position: relative;
     margin-bottom: 5px;
     margin-right: 20px;
-    float: left;
     text-align: center;
     width: 398px;
     height: 223px;
@@ -22,15 +19,17 @@ body {
 
 /*the bootstrap card*/
 .card {
+    position: relative;
     width: 25rem;
     float: left;
     margin-left: 20px;
     margin-bottom: 50px;
-    margin-right: 20px;
+
 }
 
 /*the card body*/
 .card-body {
+    position: relative;
     background-color: black;
     color: blue;
     text-align: center;
@@ -41,21 +40,11 @@ body {
     margin-top: 150px;
 }
 
-/*the input*/
-#newGif {
-    float: right;
-    margin-right: 20px;
-}
 
-/*the input button*/
-#search {
-    float: right;
-}
 
 /*the number of gifs selector and the input and button*/
 #gifSelect {
-    position: relative;
-    float: right;
     color: navy;
     font-weight: 600;
+text-align: center;
 }
