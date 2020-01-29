@@ -17,7 +17,7 @@ $(document).ready(function () {
             $(".buttonDiv").append(btn)
             //gives all of the buttons a data-car of the name in the array
             btn.attr("data-car", topics[i])
-            //gives all of the buttons a class
+            //gives all of the buttons a class note the bootstrap classes
             btn.attr("class", " btn-secondary col-md-3")
 
         }
@@ -127,7 +127,7 @@ $(document).ready(function () {
     //when the search gifs button is clicked
     $("#search").on("click", function () {
         //get the input form the input tag
-        var newGif = $("#newGif").val();
+        var newGif = $("#newGif").val().trim();
         //checks to make sure the user enters a value so there is no blank buttons
         if (newGif === "") {
             alert("enter a car")
